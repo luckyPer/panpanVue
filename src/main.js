@@ -6,8 +6,29 @@ import './registerServiceWorker'
 
 Vue.config.productionTip = false
 
-new Vue({
+var vm = new Vue({
   router,
   store,
-  render: h => h(App)
-}).$mount('#app')
+  render: h => h(App),
+  data: function (){
+    return {
+      userProfiler: {
+        name: 'mmmmoo'
+      }
+    }
+  },
+  created: function() {
+    this.userProfiler = Object.assign({}, this.userProfiler, {
+      age: 30,
+      salary: 1212
+    });
+    console.log(this.userProfiler)
+  },
+}).$mount('#app');
+
+// vm.$set(vm.userProfiler, 'age', 27);
+
+// vm.$set(vm.userProfiler, 'salary', 11111);
+
+
+

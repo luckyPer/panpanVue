@@ -3,18 +3,26 @@
 		<ul>
 			<li v-for="item in testList" :key="item.id">{{item.id}} -- {{testmsg}}</li>
 		</ul>
+		<ol>
+			<li v-for="(item, index) in testList" :key="item.id">{{item.id}} -- {{testmsg}} -- {{index}}</li>
+		</ol>
+		<div v-for="(value, key, index) in objectList" :key="key">{{index}} -- {{value}} --{{key}} --</div>
 		<p v-bind:class="[{ warning : isactive},{ danger : !isactive}]">{{answer}}</p>
 		<input type="text" v-model ="testmsg">
 		<button @click= "clickBtn">click</button>
 		<div v-if="type === 'a'">
 			type a
+			<input type="text" placeholder="type a">
 		</div>
 		<div v-else-if="type === 'b'">
 			type b
+			<input type="text" placeholder="type b">
 		</div>
-		<div v-else>
-			not type a/b
+		<div v-show="type === 'b'">
+			type b
+			<input type="text" placeholder="type b">
 		</div>
+		<button @click="togglebtn">togglebtn</button>
 	</div>
 </template>
 
@@ -33,7 +41,17 @@
 				testmsg: this.msg,
 				answer: '???',
 				isactive: true,
-				type: 'a'
+				type: 'a',
+				objectList: [
+					{
+						firstname: 'pan',
+						lastname: 'roger',
+						age: 22
+					}
+				],
+				userProfiler: {
+					name: 'monika'
+				}
 			}
 		},
 		props: {
@@ -51,6 +69,9 @@
 					then(function(response) {
 						_that.answer = response.data.answer;
 					});
+			},
+			togglebtn: function() {
+				return this.type = this.type === 'a' ? 'b' : 'a'
 			}
 		},
 		computed: {
@@ -62,6 +83,15 @@
 			answer: function() {
 				console.log("answer")
 			}
+		},
+		created:  function() {
+			this.objectList.push({
+				firstname: 'vv',
+				lastname: 'vv',
+				age: 21
+			});
+			this.objectList[0]['firstname'] = 'PAN';
+
 		}
 	}
 </script>
