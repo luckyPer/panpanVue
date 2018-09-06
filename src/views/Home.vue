@@ -1,18 +1,40 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg=""/>
+    <todo msg="s23s" :class="{burlywood: true}" v-if="resizetime"/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
+import todo from '@/components/To-Do.vue'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    HelloWorld,
+    todo
+  }, 
+  data: function() {
+    return {
+      resizetime: false
+    }
+  },
+  computed: {
+    
+  },
+  created: function() {
+    window.setTimeout(function() {
+      this.resizetime = true;
+    }, 5000);
   }
 }
 </script>
+
+
+<style scoped lang="less">
+	.burlywood {
+		color: burlywood; 
+	}
+</style>
