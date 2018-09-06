@@ -6,7 +6,15 @@
 		<p v-bind:class="[{ warning : isactive},{ danger : !isactive}]">{{answer}}</p>
 		<input type="text" v-model ="testmsg">
 		<button @click= "clickBtn">click</button>
-
+		<div v-if="type === 'a'">
+			type a
+		</div>
+		<div v-else-if="type === 'b'">
+			type b
+		</div>
+		<div v-else>
+			not type a/b
+		</div>
 	</div>
 </template>
 
@@ -24,7 +32,8 @@
 				],
 				testmsg: this.msg,
 				answer: '???',
-				isactive: true
+				isactive: true,
+				type: 'a'
 			}
 		},
 		props: {

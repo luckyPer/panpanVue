@@ -18,16 +18,19 @@ export default {
   }, 
   data: function() {
     return {
-      resizetime: false
+      resizetime: true
     }
   },
   computed: {
-    
+    resizetime: function() {
+      return this.resizetime = !this.resizetime;
+    }
   },
   created: function() {
-    window.setTimeout(function() {
-      this.resizetime = true;
-    }, 5000);
+    
+  },
+  watch: {
+
   }
 }
 </script>
