@@ -29,6 +29,11 @@ export default new Router({
       path: '/eventlist',
       name: 'eventlist',
       component: () => import('./views/EventList.vue')
+    },
+    {
+      path: '/comlist',
+      name: 'comlist',
+      component: () => import('./views/Components.vue')
     }
   ]
 })
