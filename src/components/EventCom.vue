@@ -1,5 +1,5 @@
 <template>
-    <div>test</div>    
+    <div>event component</div>    
 </template>
 <script>
     export default {
