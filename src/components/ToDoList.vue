@@ -1,13 +1,18 @@
 <template>
         <li>
-            {{item.id}} <button @click="$emit('remove')">remove</button>
+            {{item.id}} - {{item.title}} <button v-on:click="$emit('remove');">remove</button>
         </li>
 </template>
 
 <script>
 export default {
     name: 'todolist',
-    props: ['item'],
+    props: {
+        item: Object,
+        index: Number
+    },
+    methods: {
+    }
 }
 </script>
 

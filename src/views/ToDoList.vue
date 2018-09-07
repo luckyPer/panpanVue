@@ -1,7 +1,13 @@
 <template>
-<ul>
-    <ToDoList v-for="(item, key, index) in itemList" :key="key" :item="item" v-on:remove="itemList.splice(index, 1)"/>
-</ul>
+<div>
+    <div>
+        Add a list <input type="text" v-model="itemValue"> <button @click="addItem">add</button>
+    </div>
+    <ul>
+        <li is="ToDoList" v-for="(item, index) in itemList" :key="item.id" :item="item" :index="index" v-on:remove="removeItem(index)">
+        </li>       
+    </ul>
+</div>
 </template>
 
 <script>
@@ -16,17 +22,30 @@ export default {
             itemList: [
                 {
                     id: 1,
-                    title: 'Do the dishes',
+                    title: '111',
                 },
                 {
                     id: 2,
-                    title: 'Take out the trash',
+                    title: '222',
                 },
                 {
                     id: 3,
-                    title: 'Mow the lawn'
+                    title: '333'
                 }
-            ]
+            ],
+            itemValue: '',
+            nextTodoId: 4
+        }
+    },
+    methods: {
+        addItem: function() {
+            this.itemList.push({
+                id: this.nextTodoId++,
+                title: this.itemValue
+            })
+        },
+        removeItem: function(index) {
+            this.itemList.splice(index, 1)
         }
     }
 }
