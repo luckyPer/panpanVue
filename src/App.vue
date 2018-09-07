@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/todolist">todolist</router-link> |
-      <router-link to="/eventCom">eventlist</router-link> |
+      <router-link to="/eventlist">eventlist</router-link> |
       <router-link to="/comlist">componentslist</router-link>
       
     </div>
