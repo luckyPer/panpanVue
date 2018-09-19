@@ -10,6 +10,7 @@
 
 <script>
 // @ is an alias to /src
+import {increment} from 'vuex'
 import HelloWorld from '@/components/HelloWorld.vue'
 import todo from '@/components/To-Do.vue'
 import list from '@/components/List.vue'
