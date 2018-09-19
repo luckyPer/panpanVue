@@ -23,6 +23,8 @@ var vm = new Vue({
       salary: 1212
     });
     console.log(this.userProfiler)
+    store.commit("increment");
+    console.log(store.state)
   },
 }).$mount('#app');
 
