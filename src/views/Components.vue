@@ -26,7 +26,7 @@
         },
         methods: {
             changeBlogTextSize: function(size) {
-                this.largetext += size
+                this.largetext += size;
             }
         }
     }
